@@ -1,0 +1,22 @@
+{
+  "name": "crud_biblioteca_bd",
+  "version": "1.0.0",
+  "description": "Realiza o CRUD da biblioteca utilizando Postgres",
+  "main": "main.js",
+  "scripts": {
+    "start-dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "CRUD",
+    "biblioteca"
+  ],
+  "author": "fawpc",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
