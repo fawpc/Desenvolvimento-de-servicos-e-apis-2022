@@ -94,13 +94,13 @@ function listarAluguel(callback) {
 
 
 
-exports.inserirLivros = (livro, callback) => {
+function inserirLivros(livro, callback){
 
     const cliente = new Client(conexao);
     cliente.connect();
  
     //SQL
-    const sql = "INSERT INTO livro(titulo,fkA,fkE,ano) VALUES ($1,$2,$3,$4)"
+    const sql = "INSERT INTO livro(titulo,fkA,fkE,ano) VALUES ($1,$2,$3,$4) RETURNING *"
     values = [livro.titulo, livro.fkA, livro.fkE, livro.ano];
         cliente.query(sql, values, 
         function (err, res){
@@ -110,13 +110,13 @@ exports.inserirLivros = (livro, callback) => {
 
 }
 
-exports.inserirAutores = (autor, callback) => {
+function inserirAutores(autor, callback){
 
   const cliente = new Client(conexao);
     cliente.connect();
  
     //SQL
-    const sql = "INSERT INTO autor(nomeA,pais) VALUES ($1,$2)"
+    const sql = "INSERT INTO autor(nomeA,pais) VALUES ($1,$2) RETURNING *"
     values = [autor.nomeA, autor.pais];
         cliente.query(sql, values, 
         function (err, res){
@@ -127,13 +127,13 @@ exports.inserirAutores = (autor, callback) => {
 }
 
 
-exports.inserirClientes = (clientes, callback) => {
+function inserirClientes(clientes, callback){
 
     const cliente = new Client(conexao);
     cliente.connect();
  
     //SQL
-    const sql = "INSERT INTO clientes(nome,fone) VALUES ($1,$2)"
+    const sql = "INSERT INTO clientes(nome,fone) VALUES ($1,$2) RETURNING *"
     values = [clientes.nome, clientes.fone];
         cliente.query(sql, values, 
         function (err, res){
@@ -144,13 +144,13 @@ exports.inserirClientes = (clientes, callback) => {
 }
 
 
-exports.inserirAluguel = (aluguel, callback) => {
+function inserirAluguel(aluguel, callback){
 
     const cliente = new Client(conexao);
     cliente.connect();
  
     //SQL
-    const sql = "INSERT INTO aluguel(fkC,fkL,fkS,retirada,prevista) VALUES ($1,$2,$3,$4,$5)"
+    const sql = "INSERT INTO aluguel(fkC,fkL,fkS,retirada,prevista) VALUES ($1,$2,$3,$4,$5) RETURNING *"
     values = [aluguel.fkC, aluguel.fkL, aluguel.fkS, aluguel.retirada, aluguel.prevista];
         cliente.query(sql, values, 
         function (err, res){
@@ -550,4 +550,4 @@ function deletarAluguel(id_aluguel, callback) {
 
 module.exports = {listarLivros, listarAluguel, listarAutores, listarClientes, atualizarLivros, atualizarAutores, atualizarClientes, atualizarAluguel, deletarLivros, deletarAutores,
     deletarClientes, deletarAluguel, buscarPorPais, buscarPorTitulo, buscarPorIdAluguel, buscarPorNomeCliente, 
-    buscarPorNomeClienteAluguel, buscarPorNomeAutor};
+    buscarPorNomeClienteAluguel, buscarPorNomeAutor, inserirLivros, inserirClientes, inserirAutores, inserirAluguel};
