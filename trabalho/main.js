@@ -15,10 +15,10 @@ bibliotecaController.listarClientes(
 
         }
     });
-/*
+
 bibliotecaController.buscarPorNomeAutor("pedro", 
     function(erro, titulo) {
-        console.log("buscarPorTitulo(dos que): ");
+        console.log("buscarPorNomeAutor(pedro): ");
         if(erro) {
             console.log("Erro: "+erro);
         }
@@ -28,10 +28,9 @@ bibliotecaController.buscarPorNomeAutor("pedro",
 
 })
 
-/*
-bibliotecaController.inserirLivros({titulo: "pop 561", fkA: 3, fkE: 1, ano:"2015"})/*, 
+
+bibliotecaController.inserirLivros({titulo: "poPULAR", fkA: 4, fkE: 2, ano:"2019"}, 
     function(err, inserirLivro) {
-        console.log("Cenario: livro sem preco");
         if(err) {
             console.log("Sistema esta com problemas");
             console.log(err);
@@ -43,7 +42,7 @@ bibliotecaController.inserirLivros({titulo: "pop 561", fkA: 3, fkE: 1, ano:"2015
     }
 );
 
-
+/*
 bibliotecaController.deletarLivros(7, function(erro, livro) {
     console.log("livro deletado (7): ");
     if(erro) {
@@ -64,4 +63,5 @@ bibliotecaController.atualizarLivros(2, {titulo: "bambrinos", ano: 2005},
             console.log(livro);
         }
 });
+
 
