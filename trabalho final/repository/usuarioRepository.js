@@ -26,7 +26,7 @@ exports.buscarPorUsername = (username, callback) => {
         }
         else {
             if(rows && rows.length > 0){
-                callback(null,rows);
+                callback(null,rows[0]);
             }
             else{ 
                 const error = {
